@@ -1,0 +1,16 @@
+{
+  "name": "abstaticwebsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev:no-cache": "vuepress dev docs --no-clear-screen --no-cache --debug",
+    "docs:dev": "vuepress dev docs --no-clear-screen --debug",
+    "docs:build": "vuepress build docs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^1.9.5"
+  }
+}
