@@ -1,1 +1,1 @@
-    
+## Tanım ve kısıtlamalar
