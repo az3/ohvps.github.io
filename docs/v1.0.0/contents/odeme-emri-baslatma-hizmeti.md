@@ -1,4 +1,4 @@
-## 6.	Ödeme Emri Başlatma Hizmeti
+## 6.	Ödeme Emri Başlatma Hizmeti Test
 
 Ödeme emri başlatma işlemi havale, FAST ya da PÖS ödemesiyle sonuçlanabilir. Ödeme işleminin amacı kişiden kişiye para transferi, e-ticaret ödemesi gibi farklı ödeme türleri olabilir. Ödemenin amacına göre ÖBHS’nin ileteceği veri setinde farklılaşmalar olabilir.
 
