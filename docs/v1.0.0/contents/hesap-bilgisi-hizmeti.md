@@ -8,9 +8,9 @@
   - [Başarılı Yanıt](#basarılı-yanıt)
   - [İzinler](#izinler)
 - [ADIM 2: ÖHK Rızasının Tesisi](#adim-2-ohk-rızasının-tesisi)
-  - [ADIM-2.1: Hesap Bilgisi Rızasının Sorgulanması](#adim-2-1-hesap-bilgisi-rızasının-sorgulanması)
-  - [ADIM-2.2: Hesap Bilgisi Rızasının İptali](#adim-2-2-hesap-bilgisi-rızasının-iptali)
-- [ADIM-3: Hesap Bilgilerinin Alınması](#adim-3-hesap-bilgilerinin-alınması)  
+  - [ADIM 2.1: Hesap Bilgisi Rızasının Sorgulanması](#adim-2-1-hesap-bilgisi-rızasının-sorgulanması)
+  - [ADIM 2.2: Hesap Bilgisi Rızasının İptali](#adim-2-2-hesap-bilgisi-rızasının-iptali)
+- [ADIM 3: Hesap Bilgilerinin Alınması](#adim-3-hesap-bilgilerinin-alınması)  
 - [ADIM 3.1 ve 3.2: Hesap Bilgilerinin Sorgulanması](#adim-3-1-ve-3-2-hesap-bilgilerinin-sorgulanması)
 - [ADIM-3.3 ve 3.4: Hesap Bakiyesinin Sorgulanması](#adim-3-3-ve-3-4-hesap-bakiyesinin-sorgulanması)
 - [ADIM 3.5 ve 3.6: İşlemlerin Sorgulanması](#adim-3-5-ve-3-6-islemlerin-sorgulanması)
@@ -250,7 +250,7 @@ Başarılı GKD sonrasında (rizaDrm=’Y’) ilgili rıza nesnesi için (belirl
 
 Erişim belirteci alındıktan sonra; HHS,  hesap bilgisi rızasının durumunu “Yetki Kullanıldı” olarak günceller. Rıza tesisi sağlanmış olur.
 
-## ADIM-2.1: Hesap Bilgisi Rızasının Sorgulanması
+## ADIM 2.1: Hesap Bilgisi Rızasının Sorgulanması
 
 **İsteğe Bağlı**  
 **GET /hesap-bilgisi-rizasi/{RizaNo}**  
@@ -267,7 +267,7 @@ HesapBilgisiRizasi kaynağı için kullanılabilecek durum göstergeleri şu şe
 -	Yetki Sonlandırıldı
 -	Yetki İptal
 
-## ADIM-2.2: Hesap Bilgisi Rızasının İptali
+## ADIM 2.2: Hesap Bilgisi Rızasının İptali
 
 **DELETE /hesap-bilgisi-rizasi/{RizaNo}**  
 
@@ -289,7 +289,7 @@ YÖS Adı, HHS adı, Rıza Oluşturma Zamanı, Servis Tipi Bilgisi (HBHS)
 **Şekil 13: Hesap Bilgisi Müşteri Rızasının Geri Alınması**  
 <br>
 
-## ADIM-3: Hesap Bilgilerinin Alınması  
+## ADIM 3: Hesap Bilgilerinin Alınması  
 <br>   
 
 <!-- ![Şekil 14: Hesap Bilgilerinin Alınması](./images/HesapBilgilerininAlinmasi.png)   -->
@@ -347,7 +347,7 @@ srlmYon=A
 | Hesap Detay |hspDty | Kompleks: HesapDetay | K | Detay Hesap Bilgileri (Temel Hesap Bilgisine ek olarak Detay Hesap Bilgisi izin türü de seçilmişse Hesap Detay nesnesi koşullu olarak yanıtta bulunur) | 
 |> Açılış Tarihi| hspAclsTrh |	ISODateTime	| Z	| Belirtilen hesabın açılış tarihi.|  
 
-## ADIM-3.3 ve 3.4: Hesap Bakiyesinin Sorgulanması  
+## ADIM 3.3 ve 3.4: Hesap Bakiyesinin Sorgulanması  
 
 **GET /bakiye ve GET /hesaplar/{hspRef}/bakiye**  
 Bu erişim noktalarından tüm hesapların veya belirli bir hesabın bakiyesi sorgulanır.   
