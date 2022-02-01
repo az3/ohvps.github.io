@@ -14,29 +14,7 @@ module.exports = [
             },
             {
                 title: '3. Temel Prensipler',
-                path: '/v1.0.0/contents/temel-prensipler',
-                children: [
-                    {
-                        title: '3.1 Genel',
-                        path: '/v1.0.0/contents/temel-prensipler'
-                    },
-                    {
-                        title: '3.2 İstem (Çağrı) ve Oturum',
-                        path: '/v1.0.0/contents/temel-prensipler'
-                    },
-                    {
-                        title: '3.3 Restful API',
-                        path: '/v1.0.0/contents/temel-prensipler'
-                    },
-                    {
-                        title: '3.4 Sürüm Yönetimi',
-                        path: '/v1.0.0/contents/temel-prensipler'
-                    },
-                    {
-                        title: '3.5 Kaynak URI Yol Yapısı',
-                        path: '/v1.0.0/contents/temel-prensipler'
-                    },
-                ],
+                path: '/v1.0.0/contents/temel-prensipler'
             },
             {
                 title: '4. Rıza Durumları',
