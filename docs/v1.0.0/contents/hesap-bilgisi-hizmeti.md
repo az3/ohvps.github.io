@@ -1,5 +1,5 @@
 # 7.	Hesap Bilgisi Hizmeti <!-- omit in toc -->
-
+<!--
 - [Genel Bilgiler](#genel-bilgiler)
 - [Hesap Bilgisi Hizmeti İçin Erişim Adresleri](#hesap-bilgisi-hizmeti-icin-erisim-adresleri)
 - [ADIM 0: ÖHK Talebi](#adim-0-ohk-talebi)
@@ -14,7 +14,7 @@
 - [ADIM 3.1 ve 3.2: Hesap Bilgilerinin Sorgulanması](#adim-3-1-ve-3-2-hesap-bilgilerinin-sorgulanması)
 - [ADIM 3.3 ve 3.4: Hesap Bakiyesinin Sorgulanması](#adim-3-3-ve-3-4-hesap-bakiyesinin-sorgulanması)
 - [ADIM 3.5 ve 3.6: İşlemlerin Sorgulanması](#adim-3-5-ve-3-6-islemlerin-sorgulanması)
-
+-->
 
 ## Genel Bilgiler
 
@@ -32,9 +32,9 @@ Hesap bilgisi sorgulama için HBHS tarafından müşteri rızası tesisinin HHS 
 
 Şekil-10’da sunulan hesap bilgisi hizmeti 5 temel akıştan oluşur:
 
-0.	Müşterinin hesap bilgilerine erişim için talepte bulunması: ÖHK ÖBHS mobil uygulama ya da web sitesinden hesap bilgilerine erişim işlemini başlatır. 
+**0.	Müşterinin hesap bilgilerine erişim için talepte bulunması:** ÖHK ÖBHS mobil uygulama ya da web sitesinden hesap bilgilerine erişim işlemini başlatır. 
 
-1.	Hesap Bilgisi müşteri rızasının hazırlanması:
+**1.	Hesap Bilgisi müşteri rızasının hazırlanması:**
 
 HBHS, “hesap bilgilerine erişim” için müşteri rızası tesisi amacıyla HHS’deki hesap bilgisi rızası erişim adresine bir POST isteğinde bulunur ve bir hesap bilgisi rızası nesnesi oluşturur. HHS hesap bilgisi rızası nesnesi için biricik tanımlayacı döner (RızaNo). Hesap bilgisi rızası, müşterinin HBHS’nin hesap bilgilerine erişim izin verdiği alanları içerir:
 
@@ -43,7 +43,7 @@ HBHS, “hesap bilgilerine erişim” için müşteri rızası tesisi amacıyla 
   - İşlem Sorgulama Başlangıç Zamanı – Müşteri rızasının tesisinden itibaren geriye dönük olarak HBHS’nin hesap bilgilerine erişebileceği süreyi
   - İşlem Sorgulama Bitiş Zamanı - Müşteri rızasının tesisinden itibaren ileriye dönük olarak HBHS’nin hesap bilgilerine erişebileceği süreyi
 
-2.	Hesap bilgisi hizmeti müşteri rızasının tesisi: 
+**2.	Hesap bilgisi hizmeti müşteri rızasının tesisi:** 
 
 HHS, Hesap Bilgisi Rızası servisi ile ÖHK özelinde “Yetki bekleniyor” statüsünde bir rıza nesnesi hazırlar. HHS, GKD’nin başarıyla tamamlanması sonrasında hesap bilgisi rızası nesnesinin yetkilendirildiğini belirtmek için Rıza Durumunu “Rıza Yetkilendirildi” olarak günceller. Nesne yetkilendirildikten sonra HHS nesne ile bir erişim belirteci (access token) ilişkilendirir, Rıza Durumunu “Yetki Kullanıldı” yapar ve bu belirteci HBHS’ye geri döner.  Böylece müşteri rıza tesisi sağlanmış olur.
 
@@ -54,11 +54,11 @@ Hesap bilgisi için müşteri rızasına ilişkin temel ilkeler şunlardır:
 - ÖHK, hesap erişim izni ayrıntılarını yalnızca bir bütün olarak yetkilendirebilir veya geri alabilir.
 - Müşteri rızası tesisi esnasında, müşteri HHS arayüzünde erişim için yetkilendirecek hesapları seçer.
 
-2.1	Hesap bilgisi rızasının sorgulanması: Müşteri rızası GET/hesap-bilgisi-rizasi/{RizaNo} çağrısı yapılarak sorgulanır.
+**2.1	Hesap bilgisi rızasının sorgulanması:** Müşteri rızası **GET/hesap-bilgisi-rizasi/{RizaNo}** çağrısı yapılarak sorgulanır.
 
-2.2	Hesap bilgisi müşteri rızasının iptali: Müşteri rızası DELETE/hesap-bilgisi-rizasi/{RizaNo} çağrısı yapılarak iptal edilir.
+**2.2	Hesap bilgisi müşteri rızasının iptali:** Müşteri rızası **DELETE/hesap-bilgisi-rizasi/{RizaNo}** çağrısı yapılarak iptal edilir.
 
-3.	Hesap bilgilerinin alınması: Hesap bilgileri ilgili kaynağa (hesaplar, bakiye, işlemler) GET isteği yapılarak gerçekleştirilir. HBHS, müşteri rızasının tesisinden sonrasında (geçerli bir erişim belirticine sahip olduğunda) öncelikle GET/hesaplar çağrısı yapacaktır.
+**3.	Hesap bilgilerinin alınması:** Hesap bilgileri ilgili kaynağa (hesaplar, bakiye, işlemler) GET isteği yapılarak gerçekleştirilir. HBHS, müşteri rızasının tesisinden sonrasında (geçerli bir erişim belirticine sahip olduğunda) öncelikle **GET/hesaplar** çağrısı yapacaktır.
 
 ## Hesap Bilgisi Hizmeti İçin Erişim Adresleri
 
@@ -76,15 +76,15 @@ Hesap bilgisi için müşteri rızasına ilişkin temel ilkeler şunlardır:
 | 3.3 |bakiye  |GET |/bakiye | İ |İstemci Kimlik Bilgileri ve Yetkilendirme Kodu (GKD) |  |Sayfalama  | |BakiyeBilgileri(birden çok hesap) |
 | 3.3 |islemler  |GET |/hesaplar/{hspRef}/işlemler | Z |İstemci Kimlik Bilgileri ve Yetkilendirme Kodu (GKD) |  |Sayfalama Filtreleme  | |IslemBilgileri (tek hesap) |
 
-Tablo 11: Hesap Bilgisi Hizmeti İçin Erişim Adresleri
+**Tablo 11: Hesap Bilgisi Hizmeti İçin Erişim Adresleri**
 
 
-## ADIM 0: ÖHK Talebi
+## ADIM 0: ÖHK'nın hesap bilgilerine erişim için talepte bulunması:
 
-Hesap bilgisi sorgulama için HBHS tarafından müşteri rızası tesisinin HHS tamamlanmış olması gerekir. Müşteri rızası tesisi tamamlandıktan sonra, HBHS sorgulamak istediği hesaba ait verileri ilgili erişim adresi üzerinden sorgular.
+ÖHK, HBHS uygulamasında (web arayüzü/mobil uygulama) hesap bilgilerine erişim için talepte bulunur.
 
 
-## ADIM 1: ÖHK Rızasının Hazırlanması  
+## 7.1 ADIM 1: Hesap Bilgisi Rızasının Hazırlanması 
 
 Bu API çağrısı HBHS'nin HHS'de yeni bir “HesapBilgisiRizasi” nesnesi oluşturmasını ve nesneye erişmek için benzersiz bir rıza numarası ({RizaNo}) dönülmesini sağlar. 
 
@@ -96,15 +96,15 @@ Başarıyla oluşturulan hesap bilgisi rıza kaynağının rıza durumu “Yetki
 -->
 <img src="./images/HesapBilgisiMusteriRizasininHazirlanmasi.png" width="80%" >
 
-Şekil 11: Hesap Bilgisi Müşteri Rızasının Hazırlanması
+**Şekil 11: Hesap Bilgisi Müşteri Rızasının Hazırlanması**
 
 
 
 - POST /hesap-bilgisi-rizasi isteğinin (REQUEST) gövdesinde (BODY)  “HesapBilgisiRizasıIstegi” nesnesi (Tablo-12) kullanılır. İstek başarıyla sonuçlanırsa HHS kaynak sunucusunda “HesapBilgisiRizasi” (Tablo-13) nesnesi oluşturulur.
 
-**POST /hesap-bilgisi-rizasi**
+### **POST /hesap-bilgisi-rizasi**
 
-## Başarılı İstek:
+**Başarılı İstek:**
 
 İSTEK:
 
@@ -133,8 +133,8 @@ Bugün + 6 Ay : 28.02.2021
 |> Yetkili Ödeme Hizmeti Sağlayıcısı Kodu | yosKod | AN4 | Z | İsteği gönderen Yetkili Ödeme Hizmeti Sağlayıcısı (YÖS) kodudur | HHS, yosKod’un geçerli bir Ödeme Hizmeti Sağlayıcısı Kodu olduğunu ve istek başlığındaki x-tpp-code değeri ile aynı olduğunu kontrol eder.  Hata durumunda TR.OBHS.Connection.InvalidTPP hata kodunu döner. |
 | GKD | gkd | Kompleks:Gkd | Z |  |  |
 | >Yetkilendirme Yöntemi | yetYntm | AN1 | İ |TR.OHVPS.DataCode.GkdTur sıralı veri türü değerlerinden birini alır.  <br>Yetkilendirme yöntemi, HBHS tarafından belirtilmeyebilir. | HHS, HBHS’nin belirlediği yöntemi dikkate alarak kendi belirlediği yöntemi kullanır. |
-| > Yönlenme Adresi | yonAdr | AN1..1024 | K | Yönlendirmeli güçlü kimlik doğrulama için zorunludur. <br>YÖS Yönlendirmeli GKD yöntemi ile akışı destekliyorsa, yetYntm değişkeninden bağımsız olarak yönlendirme adresini iletmelidir. | HHS, müşteri uygulama / tarayıcısını bu alanda belirtilen adrese yönlendirir. |
-| > Bildirim Adresi | bldAdr | AN1..1024 | K | Ayrık güçlü kimlik doğrulama için zorunludur. <br>YÖS Ayrık GKD yöntemi ile akışı destekliyorsa, yetYntm değişkeninden bağımsız olarak bildirim adresini iletmelidir. | HHS, ayrık GKD sonrası bu alanda belirtilen adrese otorizasyon kodunu (authentication code) iletir. |
+| > Yönlenme Adresi | yonAdr | AN1..1024 | K | Yönlendirmeli güçlü kimlik doğrulama için zorunludur. <br>YÖS Yönlendirmeli GKD yöntemi ile akışı destekliyorsa, yetYntm değişkeninden bağımsız olarak yönlendirme adresini iletmelidir. Durum kodu(drmKod), yönlendirme adresine parametre olarak eklenmelidir.  | HHS, müşteri uygulama / tarayıcısını bu alanda belirtilen adrese yönlendirir. |
+| > Bildirim Adresi | bldAdr | AN1..1024 | K | Ayrık güçlü kimlik doğrulama için zorunludur. <br>YÖS Ayrık GKD yöntemi ile akışı destekliyorsa, yetYntm değişkeninden bağımsız olarak bildirim adresini iletmelidir.<br> Durum kodu(drmKod), yönlendirme adresine parametre olarak eklenmelidir.  | HHS, ayrık GKD sonrası bu alanda belirtilen adrese otorizasyon kodunu (authentication code) iletir. |
 | Kimlik | kmlk | Kompleks:Kimlik | Z |  |  |
 | > Kimlik Türü | kmlkTur | AN1 | Z | TR.OHVPS.DataCode.KimlikTur sıralı veri türü değerlerinden birini alır. <br> Kurum adına yapılan(ticari) işlemlerde kurum kullanıcısının bilgisi iletilmelidir. |  |
 | > Kimlik Verisi | kmlkVrs | AN1..30 | Z | HHS nezdinde kullanıcı doğrulamasında kullanılan tanımlayıcıdır. <br> TR.OHVPS.DataCode.KimlikTur değerine göre uzunluk ve formatı değişir. <br> Kurum adına yapılan(ticari) işlemlerde kurum kullanıcısının bilgisi iletilmelidir. |  |
@@ -175,7 +175,7 @@ Bugün + 6 Ay : 28.02.2021
 |> Yönlenme Adresi|	yonAdr|	AN1..1024|	K	|HHS, müşteri uygulama / tarayıcısını bu alanda belirtilen YÖS adresine yönlendirir.|
 |> Bildirim Adresi|	bldAdr	| AN1..1024	|K|	HHS, ayrık GKD sonrası bu alanda belirtilen YÖS adresine otorizasyon kodunu (authentication code) iletir.|
 |> HHS Yönlenme Adresi |	hhsYonAdr	|AN1..1024|	K|	GKD doğrulama bilgilerinin girilebilmesi için uygulamadan açılacak yönlendirme sayfasının adresi. |
-|> Yetkilendirme Tamamlanma Zamanı |	yetTmmZmn	|ISODateTime	|K	|Yetkilendirme akışının tamamlanması gereken son zamanı gösterir.  HHS tarafından maksimum 5 dk içinde işlem tamamlanacak şekil zaman damgası oluşturulur. Zaman aşımı olduğunda HHS’nin GKD’ye izin vermeyecek şekilde hata mesajı vermesi gerekmektedir.|
+|> Yetkilendirme Tamamlanma Zamanı |	yetTmmZmn	|ISODateTime	|Z	|Yetkilendirme akışının tamamlanması gereken son zamanı gösterir.  HHS tarafından maksimum 5 dk içinde işlem tamamlanacak şekil zaman damgası oluşturulur. Zaman aşımı olduğunda HHS’nin GKD’ye izin vermeyecek şekilde hata mesajı vermesi gerekmektedir.<br>Rıza durumu Yetkilendirildi statüsüne geçene kadarki süredir.|
 |Hesap Bilgisi|	hspBlg|	Kompleks: HesapBilgisi|	Z| |
 |> İzin Bilgisi|	iznBlg|	Kompleks: IzinBilgisi|	Z| |
 |>> İzin Türü|	iznTur|	Array[AN2]|	Z|	ÖHK tarafından HBHS önyüzünde belirlenen izin tipleridir. Bir istekte birden fazla değer bulunabilir, TR.OHVPS.DataCode.IzinTur sıralı veri türü değerlerlerinden birini alır.|
@@ -209,13 +209,13 @@ Aşağıdaki durumlarda, izin kombinasyonlarına izin verilmez. HHS, bu hesap er
 - İzin dizisinin herhangi bir izin türü içermemesi durumu,
 - İzin dizisinde HHS tarafından desteklenmeyen bir izin kodunun yer alması durumu
 
-## ADIM 2: ÖHK Rızasının Tesisi
-<<!--
+## 7.2 ADIM 2: Hesap Bilgisi Hizmeti Rızasının Tesisi
+<!--
 ![Şekil 12: Hesap Bilgisi Müşteri Rızasının Tesisi](./images/HesapBilgisiMusteriRizasininTesisi.png)
 -->
 <img src="./images/HesapBilgisiMusteriRizasininTesisi.png" width="80%" >
 
-Şekil 12: Hesap Bilgisi Müşteri Rızasının Tesisi
+**Şekil 12: Hesap Bilgisi ÖHK Rızasının Tesisi**
 
 Rıza tesisinin başarıyla sonuçlanması için HBHS'nin istemci kimlik bilgileri yetkisi kullanması ve ardından müşterinin HHS tarafından yönlendirmeli veya ayrık GKD ile doğrulanması gerekir. HHS'de oluşturulan ve rıza durumu “Yetki Bekleniyor” olan bir hesap bilgisi rızası, GKD sonrası “Yetkilendirildi” statüsüne güncellenir. HBHS, erişim sağlayacağı hesapları hesap bilgisi rızasının tesisinden önce seçer. 
 
@@ -229,14 +229,14 @@ Rıza tesisinin başarıyla sonuçlanması için HBHS'nin istemci kimlik bilgile
           - HHS hesap bilgisiri rıza kaynağının durumunu “Yetkilendirildi” olarak günceller. 
           - HHS, ÖHK’yı “olumlu yönlendirme akışı” ile HBHS tarafından tanımlanan yönlendirme adresine yönlendirir:  
 
-                yonAdr?rizaDrm=Y&yetKod=xx&rizaNo=yy&rizaTip=H
+                yonAdr?rizaDrm=Y&yetKod=xx&rizaNo=yy&rizaTip=H&drmKod=zzz
 
 
         ÖHK’yı doğrulayamazsa,
         - HHS, hesap bilgisi rıza kaynağının durumunu “Yetki İptal” olarak günceller. 
         - HHS, ÖHK’yı “olumsuz yönlendirme akışı” ile HBHS tarafından tanımlanan yönlendirme adresine yönlendirir:  
         
-              yonAdr?rizaDrm=I &rizaNo=yy&rizaTip=H&rizaIptDtyKod=11
+              yonAdr?rizaDrm=I &rizaNo=yy&rizaTip=H&rizaIptDtyKod=11&drmKod=zzz
 
 -	Ayrık doğrulama akışında, HHS, ÖHK’nın hesap bilgisi hizmetini başlattığı uygulamadan farklı olabilecek bir “doğrulama” uygulamasında işlemi doğrulamasını ister.   
 
@@ -250,7 +250,7 @@ Başarılı GKD sonrasında (rizaDrm=’Y’) ilgili rıza nesnesi için (belirl
 
 Erişim belirteci alındıktan sonra; HHS,  hesap bilgisi rızasının durumunu “Yetki Kullanıldı” olarak günceller. Rıza tesisi sağlanmış olur.
 
-## ADIM 2.1: Hesap Bilgisi Rızasının Sorgulanması
+## 7.3 ADIM 2.1: Hesap Bilgisi Rızasının Sorgulanması
 
 **İsteğe Bağlı**  
 **GET /hesap-bilgisi-rizasi/{RizaNo}**  
@@ -267,7 +267,7 @@ HesapBilgisiRizasi kaynağı için kullanılabilecek durum göstergeleri şu şe
 -	Yetki Sonlandırıldı
 -	Yetki İptal
 
-## ADIM 2.2: Hesap Bilgisi Rızasının İptali
+## 7.4 ADIM 2.2: Hesap Bilgisi Rızasının İptali
 
 **DELETE /hesap-bilgisi-rizasi/{RizaNo}**  
 
@@ -289,7 +289,7 @@ YÖS Adı, HHS adı, Rıza Oluşturma Zamanı, Servis Tipi Bilgisi (HBHS)
 **Şekil 13: Hesap Bilgisi Müşteri Rızasının Geri Alınması**  
 <br>
 
-## ADIM 3: Hesap Bilgilerinin Alınması  
+## 7.5 ADIM 3: Hesap Bilgilerinin Alınması  
 <br>   
 
 <!-- ![Şekil 14: Hesap Bilgilerinin Alınması](./images/HesapBilgilerininAlinmasi.png)   -->
@@ -306,7 +306,7 @@ Müşteri rızası tesis edilmiş kullanıcı için HBHS API erişim adresinden 
 
 GET verisinin mantıksal kontrolleri yapılır.  
 
-## ADIM 3.1 ve 3.2: Hesap Bilgilerinin Sorgulanması
+## 7.6 ADIM 3.1 ve 3.2: Hesap Bilgilerinin Sorgulanması
 
 **GET /hesaplar ve GET /hesaplar/{hspRef}**
 
@@ -347,7 +347,7 @@ srlmYon=A
 | Hesap Detay |hspDty | Kompleks: HesapDetay | K | Detay Hesap Bilgileri (Temel Hesap Bilgisine ek olarak Detay Hesap Bilgisi izin türü de seçilmişse Hesap Detay nesnesi koşullu olarak yanıtta bulunur) | 
 |> Açılış Tarihi| hspAclsTrh |	ISODateTime	| Z	| Belirtilen hesabın açılış tarihi.|  
 
-## ADIM 3.3 ve 3.4: Hesap Bakiyesinin Sorgulanması  
+## 7.7 ADIM 3.3 ve 3.4: Hesap Bakiyesinin Sorgulanması  
 
 **GET /bakiye ve GET /hesaplar/{hspRef}/bakiye**  
 Bu erişim noktalarından tüm hesapların veya belirli bir hesabın bakiyesi sorgulanır.   
@@ -380,7 +380,7 @@ srlmYon=A
 |>> Kredili Mevduat Hesabı Bakiyesi	|kulKrdTtr	|N1..18|	Z	|Kullanılabilir kredili mevduat tutarı. Kredili bir hesap ise zorunlu. Örneğin 1,20 TRY için tutar alanında “120” değeri iletilir|
 |>> Kredi Dahil Göstergesi|	krdDhlGstr	|AN1|	Z	|Kredili bir hesap ise zorunlu. Bakiye tutarının kullanılabilir kredi tutarı dahil edilerek ya da edilmeden iletildiğini gösterir.  0: Kredi tutarı dahil edilmeden bakiye bilgisi iletilmesi durumu 1: Kredi tutarı dahil edilerek bakiye bilgisi iletilmesi durumu|  
 
-## ADIM 3.5 ve 3.6: İşlemlerin Sorgulanması  
+## 7.8 ADIM 3.5 ve 3.6: İşlemlerin Sorgulanması  
 
 **GET /hesaplar/{hspRef}/islemler**  
 
@@ -418,8 +418,8 @@ srlmYon=A
 
 |Alan Adı |Parametre Adı	|Format	|Zorunlu / Koşullu /  İsteğe bağlı	|Açıklama	|HHS tarafından yapılması gereken kontrol ve işlemler|
 | --- | --- | --- | --- | --- | --- |
-|İşlem Sorgulama Başlangıç Zamanı	|hesapIslemBslTrh	|ISODateTime|	Z	|Sorgulanacak işlemlerin başlangıç tarihi.|	HHS işlemler listesi dönüşünü bu kritere göre filtreleyerek iletmek zorundadır.ÖHK tarafından tetiklenen sorgularda;hesapIslemBslTrh ve hesapIslemBtsTrh arası fark bireysel ÖHK’lar için en fazla 1 ay,kurumsal ÖHK’lar için ise en fazla 1 hafta olabilir.YÖS tarafından sistemsel yapılan sorgulamalarda hem bireysel, hem de kurumsal ÖHK’lar için;son 24 saat sorgulanabilir. Bu yüzden hesapIslemBtsTrh-24 saat’ten daha uzun bir aralık sorgulanamaz olmalıdır.İstek başlığında yer alan PSU-Initiated alanı “E” ise ÖHK’lı, “H” ise sistemsel yapılmış bir sorgu anlamına gelmektedir.|
-|İşlem Sorgulama Bitiş Zamanı|	hesapIslemBtsTrh	|ISODateTime|	Z	|Sorgulanacak işlemlerin bitiş tarihi.|	HHS işlemler listesi dönüşünü bu kritere göre filtreleyerek iletmek zorundadır.YÖS tarafından sistemsel yapılan sorgulamalarda hem bireysel, hem de kurumsal ÖHK’lar için;İleri vadeli işlem emirleri dahil olmadığı için; İşlem Sorgulama Bitiş Zamanı, her zaman, sorgulama zaman damgasını iletecek şekilde (datetime (now))iletilmelidir. |
+|İşlem Sorgulama Başlangıç Zamanı	|hesapIslemBslTrh	|ISODateTime|	Z	|Sorgulanacak işlemlerin başlangıç tarihi.|	HHS işlemler listesi dönüşünü bu kritere göre filtreleyerek iletmek zorundadır.<br><br>ÖHK tarafından tetiklenen sorgularda;hesapIslemBslTrh ve hesapIslemBtsTrh arası fark bireysel ÖHK’lar için en fazla 1 ay,kurumsal ÖHK’lar için ise en fazla 1 hafta olabilir.<br><br>YÖS tarafından sistemsel yapılan sorgulamalarda hem bireysel, hem de kurumsal ÖHK’lar için;son 24 saat sorgulanabilir. Bu yüzden hesapIslemBtsTrh-24 saat’ten daha uzun bir aralık sorgulanamaz olmalıdır.<br><br>İstek başlığında yer alan PSU-Initiated alanı “E” ise ÖHK’lı, “H” ise sistemsel yapılmış bir sorgu anlamına gelmektedir.|
+|İşlem Sorgulama Bitiş Zamanı|	hesapIslemBtsTrh	|ISODateTime|	Z	|Sorgulanacak işlemlerin bitiş tarihi.|	HHS işlemler listesi dönüşünü bu kritere göre filtreleyerek iletmek zorundadır.<br>YÖS tarafından sistemsel yapılan sorgulamalarda hem bireysel, hem de kurumsal ÖHK’lar için;İleri vadeli işlem emirleri dahil olmadığı için; İşlem Sorgulama Bitiş Zamanı, her zaman, sorgulama zaman damgasını iletecek şekilde (datetime (now)) iletilmelidir. |
 |En Düşük İşlem Tutarı|	minIslTtr	|N1..18	|İ	|Sorgulanacak işlemlerin alabileceği en düşük işlem tutarı.Örneğin 1,20 TRY için tutar alanında “120” değeri iletilir.|	Bu veri gönderildiği durumda HHS işlemler listesi dönüşünü bu kritere göre filtreleyerek iletmek zorundadır.|
 |En Yüksek İşlem Tutarı	|mksIslTtr|	N1..18|	İ|	Sorgulanacak işlemlerin alabileceği en yüksek işlem tutarı.Örneğin 1,20 TRY için tutar alanında “120” değeri iletilir. |	Bu veri gönderildiği durumda HHS işlemler listesi dönüşünü bu kritere göre filtreleyerek iletmek zorundadır.|
 |Borç Alacak Göstergesi	|brcAlc	|AN1|	İ|	TR.OHVPS.DataCode.BrcAlc sıralı veri tipi değerlerinden birini alır. Sorgulanacak işlemlerin borç / alacak kriteri B: Hesaba borç yaratan işlem.A: Hesaba alacak yaratan işlem.{“B”,”A”}	|Bu veri gönderildiği durumda HHS işlemler listesi dönüşünü bu kritere göre filtreleyerek iletmek zorundadır.|
@@ -443,7 +443,7 @@ srlmYon=A
 |>> İşlem Kanalı|	kanal|	AN1|	Z	|TR.OHVPS.DataCode.OdemeKaynak sıralı veri türü değerlerlerinden birini alır.|
 |>> Borçlandırma Alacaklandırma Göstergesi|	brcAlc|	AN1|	Z|	TR.OHVPS.DataCode.BrcAlc sıralı veri türü değerlerinden birini alır. İşlemin hesabı borç ya da alacaklandırdığı bilgisidir. |
 |>> İşlem Türü	|islTur	|AN3..50|	Z|	HHS’nin işleme ait ilişkilendirdiği işlem türü değeri. TR.OHVPS.DataCode.IslemTuru sıralı veri türü değerlerlerinden birini alır.|
-|>> Ödeme Amacı	|odmAmc	|AN2|	Z	|TR.OHVPS.DataCode.OdemeAmaci sırali veri değerlerinden birini alır. Karekod akışında, FAST Karekod Veri Organizasyonundaki 62-08: alanında tanımlı Ödeme Amacı verisi kullanılır.|
+|>> İşlem Amacı	|islAmc	|AN2|	Z	|TR.OHVPS.DataCode.IslemAmaci sırali veri değerlerinden birini alır.<br><br>Karekod akışında, FAST Karekod Veri Organizasyonundaki 62-08: alanında tanımlı Ödeme Amacı verisi kullanılır.|
 |>> Ödeme Sistemi No	|odmStmNo	|AN10..50 |	K|	Ödeme başarılı başlatıldıysa, ödemenin başlatıldığı sistemdeki referans numarası. FAST işlemleri için MesRefBlg değeri atanır. Ödeme Hizmeti kullancısına işlemin takibi için gösterilebilir.|
 |> Detay İşlem Bilgileri|	islDty|	Kompleks: IslemDetay|	K	|Detay İşlem Bilgileri dizi olarak gönderilmelidir. |
 |>> İşlem Açıklaması|	islAcklm|	AN1..150|	Z|	HHS tarafından atanan işlem açıklaması.HHS kendi işlem hareketlerine yansıttığı açıklamayı buraya yansıtmalıdır.|
@@ -453,3 +453,16 @@ srlmYon=A
 
 
 
+## 7.9	Healthcheck API
+
+GET /health
+
+HHS’lerin sunacağı bu servis, düzenli olarak BKM tarafından çağırılarak servislerin ayakta olup olmadıklarının kontrolünün sağlanması planlanmaktadır
+
+	Başarılı yanıtta Http 200 kodu dönülmelidir.  
+	Başarılı Yanıt:
+
+
+| Alan Adı | JSON Alan Adı |Format: Veri modeli İsmi  |Zorunlu / Koşullu / İsteğe bağlı |Açıklama |
+| --- |--- |--- |--- |--- |
+| status | status |AN2..20 | Z | “UP”, “DOWN” değerlerini alabilir |

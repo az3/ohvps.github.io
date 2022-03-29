@@ -1,7 +1,7 @@
 <h1> 2.	Kapsam ve Dayanak</h1>  
 
-12 Kasım 2019’da güncellenen “**6493 sayılı Ödeme ve Menkul Kıymet Mutabakat Sistemleri, Ödeme Hizmetleri ve Elektronik Para Kuruluşları Hakkında Kanun**”un (Kanun) 12’nci maddesine yeni eklenen ve Ödeme Hizmetleri Direktifi 2'de (Payment Services Directive 2, PSD2) bulunan iki yeni ödeme hizmeti aşağıdaki gibi tanımlanmıştır (Şekil-1: Ödeme Hizmetleri Veri Paylaşım Servisleri):
-- **Ödeme Emri Başlatma Hizmeti**: ÖHK’nın isteği üzerine başka bir ödeme hizmeti sağlayıcısında bulunan ödeme hesabıyla ilgili sunulan ödeme emri başlatma hizmeti [Madde 12, birinci fıkra, (f) bendi]
+12 Kasım 2019’da güncellenen “**6493 sayılı Ödeme ve Menkul Kıymet Mutabakat Sistemleri, Ödeme Hizmetleri ve Elektronik Para Kuruluşları Hakkında Kanun**”un (Kanun) 12’nci maddesine yeni eklenen ve **Ödeme Hizmetleri Direktifi 2**'de (Payment Services Directive 2, PSD2) bulunan iki yeni ödeme hizmeti aşağıdaki gibi tanımlanmıştır (Şekil-1: Ödeme Hizmetleri Veri Paylaşım Servisleri):
+- **Ödeme Emri Başlatma Hizmeti**: ÖHK’nın isteği üzerine başka bir ödeme hizmeti sağlayıcısında bulunan **ödeme hesabıyla** ilgili sunulan ödeme emri başlatma hizmeti [Madde 12, birinci fıkra, (f) bendi]
 - **Hesap Bilgisi Hizmeti**: ÖHK’nın onayının alınması koşuluyla, ÖHK’nın ödeme hizmeti sağlayıcıları nezdinde bulunan bir veya daha fazla **ödeme hesabına** ilişkin konsolide edilmiş bilgilerin çevrim içi platformlarda sunulması hizmeti [Madde 12, birinci fıkra, (g) bendi]  
 
 
@@ -15,7 +15,7 @@
 
 Düzenlemeler kapsamında yetkilendirilen üçüncü taraf hizmet sağlayıcısı **(Yetkili Ödeme Hizmeti Sağlayıcısı, YÖS)**, ödeme hizmeti kullanıcılarının **Hesap Hizmeti Sağlayıcıları (HHS)** nezdindeki ödeme hesaplarına ulaşarak ödeme emri başlatma ve hesap bilgisi sağlama hizmetlerinden (ödeme hizmetleri veri paylaşım servislerinden) faydalanmasına aracılık eder. Ödeme hizmetleri veri paylaşım servisleri kapsamında iki tip YÖS bulunmaktadır: **1) Hesap Bilgisi Hizmeti Sağlayıcısı (HBHS) ve 2) Ödeme Emri Başlatma Hizmeti Sağlayıcısı (ÖBHS).**  
 
-Hesap Bilgisi Hizmeti Sağlayıcısı (HBHS) ÖHK’nın farklı Hesap Hizmeti Sağlayıcıları (HHS) nezdindeki hesaplarının bilgilerini derleyerek çevrim içi platformlarda toplu şekilde sunar. Ödeme Emri Başlatma Hizmeti Sağlayıcısı (ÖBHS) ise talebi üzerine ÖHK’nın HHS’de bulunan ödeme hesabından ödeme işlemi başlatır.   
+Hesap Bilgisi Hizmeti Sağlayıcısı (HBHS) ÖHK’nın farklı Hesap Hizmeti Sağlayıcıları (HHS) nezdindeki hesaplarının bilgilerini derleyerek çevrim içi platformlarda *toplu şekilde* sunar. Ödeme Emri Başlatma Hizmeti Sağlayıcısı (ÖBHS) ise talebi üzerine ÖHK’nın HHS’de bulunan ödeme hesabından ödeme işlemi başlatır.   
 
 ÖHVPS’nin üst düzey gösterimi Şekil-2’de verilmiştir.  
 
@@ -23,7 +23,7 @@ Hesap Bilgisi Hizmeti Sağlayıcısı (HBHS) ÖHK’nın farklı Hesap Hizmeti S
 
 **Şekil 2: Ödeme Hizmetleri Veri Paylaşım Servisleri (ÖHVPS) -üst düzey gösterim**  
 
-Ödeme Hizmetleri Veri Paylaşım Servislerinin HHS’ler tarafından BKM API Geçidi vasıtasıyla sunulduğu uygulama mimarisi ise Şekil-3’te sunulmuştur.  
+Ödeme Hizmetleri Veri Paylaşım Servislerinin HHS’ler tarafından **BKM API Geçidi** vasıtasıyla sunulduğu uygulama mimarisi ise Şekil-3’te sunulmuştur.  
 
 <img src="./images/sekil3-ohvps-bkm.png" width="50%" > 
    

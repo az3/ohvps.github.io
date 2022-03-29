@@ -2,7 +2,7 @@
 
 Bu bölümde Ödeme Hizmetleri Veri Paylaşım Servisleri (Hesap Bilgisi Hizmeti, Ödeme Emri Başlatma Hizmeti) için tanımlanan temel prensipler açıklanmaktadır.    
 
-
+<!--
 - [3.1 Genel](#_3-1-genel)
 - [3.2.	İstem ve Oturum](#_3-2-istem-ve-oturum)
 - [3.3.	RESTful API](#_3-3-restful-api)
@@ -24,7 +24,7 @@ Bu bölümde Ödeme Hizmetleri Veri Paylaşım Servisleri (Hesap Bilgisi Hizmeti
 - [3.19. Maskeleme Kuralları](#_3-19-maskeleme-kuralları)
 - [3.20. Fonksiyonel Olmayan Gereksinimler](#_3-20-fonksiyonel-olmayan-gereksinimler)
 
-
+-->
 
 ## 3.1 Genel  
 
@@ -62,10 +62,11 @@ API’ler, dünya ölçeğinde yaygın bir şekilde kullanılan Temsili Durum Tr
 
 API sonraki aşamalarda doğabilecek gereksinimleri ve daha karmaşık kullanım durumlarını karşılamak için sürümler halinde geliştirilir ve bu durum tasarım sırasında göz önünde bulundurulur. 
 API v1.0 sürümünde 
--	Vadesiz TL, yabancı para hesapları (gerçek ve tüzel kişilere ait ödeme hesapları), Kredili Mevduat Hesabı 
+-	Kapsamdaki ödeme hesapları : Vadesiz TL, yabancı para hesapları (gerçek ve tüzel kişilere ait ödeme hesapları), Kredili Mevduat Hesabı 
 -	Tekil ödeme (Virman/Havale/FAST/Müşterilerarası TL Aktarım Sistemi)
+    -	Virman ve havale işlemleri kapsamında yabancı para transferi yapılabilir.
 -	Hesap bilgisi hizmetleri
-    -   Temel veya ayrıntılı hesap bilgisi
+    - Temel veya ayrıntılı hesap bilgisi
     -	Bakiye
     -	Gerçekleşen işlemler için Hesap hareketleri
 -	Karekodlu ödemelerdeki 01, 02 ve 03 akış türleri
@@ -175,7 +176,7 @@ XXX : ISO 8601 Time zone
 
 ÖHVPS kapsamında tarafların güvenli bir şekilde tanımlaması, uçtan uca güvenli iletişim, mesaj şifreleme ve mesaj imzalama işlevleri 15/1/2004 tarihli ve 5070 sayılı Elektronik İmza Kanunu’nda açıklanan elektronik sertifikalar kullanılarak sağlanır. Elektronik sertifikada Türkiye Cumhuriyet Merkez Bankası tarafından verilen kuruluş kodu ve kuruluşun türüne dair bilgiler bulunur.  
 
-BKM API Geçidi üzerinden yapılan erişimlerde YÖS ve HHS’lere önceden dağıtılmış olan istemci sertifikaları kullanılarak tarafların (sunucu) kimliklerinin doğrulanması sağlanacaktır. İstemci sertifikaları hem test hem de üretim ortamında kullanılacaktır. Sertifikaların işlevselliği ve geçerliliği sertifikasyon sürecinde de sınanacaktır. Söz konusu sertifikaların dağıtım prosedürleri ve kullanımlara yönelik açıklamalar EK-4’te yer verilmiştir.  
+BKM API Geçidi üzerinden yapılan erişimlerde YÖS ve HHS’lere önceden dağıtılmış olan istemci sertifikaları kullanılarak tarafların (sunucu) kimliklerinin doğrulanması sağlanacaktır. İstemci sertifikaları hem test hem de üretim ortamında kullanılacaktır. Sertifikaların işlevselliği ve geçerliliği sertifikasyon sürecinde de sınanacaktır. Söz konusu sertifikaların dağıtım prosedürleri ve kullanımlara yönelik açıklamalar EK-3’te yer verilmiştir.  
 
 
 ## 3.9.	Yetkilendirme Türleri
@@ -267,9 +268,9 @@ Erişim adreslerinin ve alanların kullanımı Zorunlu(Z), İsteğe Bağlı(İ) 
 |PSU-Timestamp|ISODateTime|	ÖHK’nın işlemi başlattığı cihazın tarih saat içeren zaman bilgisi.|İ|İ|İ|
 |PSU-Device-ID|AN5..40|ÖHK işlemi mobil uygulama aracılığıyla başlattıysa, kullanılan mobil uygulama ilk yüklendiğinde oluşturulan tekil cihaz veya uygulama belirteci. ÖHK cihazının UUID değeri kullanılabilir.|İ|İ|İ|
 |PSU-Device-Data|AN1..1024|ÖHK’nın işlemi başlattığı mobil cihaza ait veriler. <br>Örnek alanlar: <br> - Platform - (Android, iOS, Windows 10 Mobile)<br> - Device Model <br> - OS Name <br> - OS Version<br>- Locale<br>- Time zone|İ|İ|İ|
-|PSU-Initiated|AN1|İşlemler servisinde yapılacak sistemsel sorgulardaki işlem limitlerini kontrol amacıyla kullanılır. İşlemin ÖHK tarafından başlatılması durumunda E , sistem tarafından başlatıldığı durumda H değerini alması beklenir.|Z|Z|Z|
-|Authorization|AN1..4096|YÖS ile BKM API Gateway arasındaki otorizasyon için kullanılan token bilgisidir. |Z  |Z |Z  |
-| X-Access-Token |AN1..4096|ÖHK’nın GKD sürecinde doğrulanması sonrasında kullanılan erişim simgesi|İ|İ|İ|
+|PSU-Initiated|AN1|İşlemin ÖHK tarafından başlatılması durumunda E , sistem tarafından başlatıldığı durumda H değerini alması beklenir. <br> İşlemler servisinde yapılacak sistemsel sorgulardaki işlem limitlerini kontrol amacıyla kullanılır. |Z|Z|Z|
+|Authorization|AN1..4096|YÖS ile BKM API Gateway arasındaki otorizasyon için kullanılan token bilgisidir. <br>Yekilendirme türlerinden İstemci Kimlik Bilgileri’ni adresler.|Z  |Z |Z  |
+| X-Access-Token |AN1..4096|ÖHK’nın GKD sürecinde doğrulanması sonrasında kullanılan erişim simgesi. Yetkilendirme türlerinden Yetkilendirme Kodu (GKD)’nu adresler. |İ|İ|İ|
 |X-JWS-Signature|AN1..4096|Payload gövdesinin ayrılmış bir JWS imzasını içeren üstbilgi.<br> Bu başlığın ne zaman belirtilmesi gerektiği hususu ilgili endpoint için belirtilmiştir.|K (Kullanılan API ve metoda göre kullanılır.) |K  |K |K|
 
 ## 3.16. Yanıt Başlığı  
@@ -285,8 +286,8 @@ Erişim adreslerinin ve alanların kullanımı Zorunlu(Z), İsteğe Bağlı(İ) 
 |Content-Type |AN1..20|Standart HTTP Başlığı; Talepte sağlanan payload’ın biçimini temsil eder: **application/json**|İ|
 |X-JWS-Signature |AN1..4096|JWS imzasını içeren üstbilgi. Bu başlığın hangi yanıtlar için kullanılması gerektiği ilgili endpoint için belirtilmiştir.dsdsa|K|
 |Retry-After |AN 1..255|YÖS’ün bir isteği yeniden denemeden önce beklemesi gereken süreyi (saniye cinsinden) gösterir. HHS, 429 HTTP durum kodu (Too Many Requests) ile döndüğü yanıtların başlığında bu bilgiyi dönmelidir.|K|
-|x-total-count |N 1..18|Sayfalama kullanıldığı durumda, sorgu sonucu dönecek toplam kayıt sayısı bilgisi yer alır.|K|
-|Link|1..4096|Sayfalama yapısı kullanıldığında gelen yanıtta birden fazla sayfa var ise; önceki, sonraki, ilk, son sayfalara gitmek için gerekli referanslar link headerında aşağıdaki örnekteki gibi doldurulmalıdır. İlk sayfada “Önceki” seçeneği olmamalı, son sayfada ise “Sonraki” seçeneği olmamalıdır. <br>Çoklu sayfa yapısı olması durumunda gönderilmesi zorunludur.<br><br> **&lt;/ohvps/hbh/s1.0/hesaplar/hspref/islemler?hesapIslemBslTrh=2019-01-01T00:00:00+03:00&hesapIslemBtsTrh=2023-12-12T23:59:59+03:00&srlmKrtr=islGrckZaman&srlmYon=Y&syfNo=6&syfKytSayi=100&gt;; rel="next",<br> &lt;/ohvps/hbh/s1.0/hesaplar/hspref/islemler?hesapIslemBslTrh=2019-01-01T00:00:00+03:00&hesapIslemBtsTrh=2023-12-12T23:59:59+03:00&srlmKrtr=islGrckZaman&srlmYon=Y&syfNo=4&syfKytSayi=100&gt;; rel="prev",<br> &lt;/ohvps/hbh/s1.0/hesaplar/hspref/islemler?hesapIslemBslTrh=2019-01-01T00:00:00+03:00&hesapIslemBtsTrh=2023-12-12T23:59:59+03:00&srlmKrtr=islGrckZaman&srlmYon=Y&syfNo=14&syfKytSayi=100&gt;; rel="last",<br> &lt;/ohvps/hbh/s1.0/hesaplar/hspref/islemler?hesapIslemBslTrh=2019-01-01T00:00:00+03:00&hesapIslemBtsTrh=2023-12-12T23:59:59+03:00&srlmKrtr=islGrckZaman&srlmYon=Y&syfNo=0&syfKytSayi=100&gt;; rel="first"** |K|
+|x-total-count |N 1..18|Hesaplar, İşlemler ve Bakiye servislerinde sayfalama kullanıldığı durumda, sorgu sonucu dönecek toplam kayıt sayısı bilgisi, bu alanda HHS isteğine bağlı olarak gönderilebilir.  |İ|
+|Link|1..4096|“Link” alanının çoklu sayfa yapısı olması durumunda gönderilmesi zorunludur.<br> Sayfalama yapısı kullanıldığında gelen yanıtta birden fazla sayfa var ise; önceki, sonraki, ilk, son sayfalara gitmek için gerekli referanslar link headerında aşağıdaki örnekteki gibi doldurulabilir. <br>x-total-count alanının gönderimi isteğe bağlı olduğu için; Link içerisindeki son sayfa bilgisi  (last) isteğe bağlı hale getirilmiştir. “Önceki”( prev) ve “Sonraki” (next) adımlarının uygun olan her durumda yer alması zorunludur.<br>İlk sayfada “Önceki” seçeneği olmamalı, son sayfada ise “Sonraki” seçeneği olmamalıdır. <br><br> **&lt;/ohvps/hbh/s1.0/hesaplar/hspref/islemler?hesapIslemBslTrh=2022-01-01T00:00:00+03:00&hesapIslemBtsTrh=2023-12-12T23:59:59+03:00&srlmKrtr=islGrckZaman&srlmYon=Y&syfNo=6&syfKytSayi=100&gt;; rel="next",<br> &lt;/ohvps/hbh/s1.0/hesaplar/hspref/islemler?hesapIslemBslTrh=2022-01-01T00:00:00+03:00&hesapIslemBtsTrh=2023-12-12T23:59:59+03:00&srlmKrtr=islGrckZaman&srlmYon=Y&syfNo=4&syfKytSayi=100&gt;; rel="prev",<br> &lt;/ohvps/hbh/s1.0/hesaplar/hspref/islemler?hesapIslemBslTrh=2022-01-01T00:00:00+03:00&hesapIslemBtsTrh=2023-12-12T23:59:59+03:00&srlmKrtr=islGrckZaman&srlmYon=Y&syfNo=14&syfKytSayi=100&gt;; rel="last",<br> &lt;/ohvps/hbh/s1.0/hesaplar/hspref/islemler?hesapIslemBslTrh=2022-01-01T00:00:00+03:00&hesapIslemBtsTrh=2023-12-12T23:59:59+03:00&srlmKrtr=islGrckZaman&srlmYon=Y&syfNo=0&syfKytSayi=100&gt;; rel="first"** |K|
 
 
 ## 3.17. Idempotency Kuralları
@@ -406,7 +407,7 @@ Zorunlu header alanlarından biri ya da birkaçı eksik olarak gönderilirse aş
 | 201 Created | **İstek Başarılı Oldu.**<br>Kaynak yaratma isteği (örneğin, POST /ödeme-emri-rizasi) başarıyla sonuçlandı. | E | H | H |
 | 204 No Content | **Silme işlemi başarıyla tamamlandı.**<br>Kaynak silme isteği (örneğin, **DELETE /hesap-rizasi/{RizaNo}**) başarıyla sonuçlandı. | H | H | E |
 | 400 Bad Request | **İstekte bozuk, eksik veya uyumlu olmayan JSON gövdesi, URL parametreleri veya başlık alanları var.** İstekle başlatılan işlem yapısal bozukluk, eksik veya tutarsız veri veya HHS tarafındaki kontrollerin hatalı sonuçlanması nedeniyle hata ile sonuçlanır ve hataya ilişkin veriler hata nesnesi içerisinde dönülür. | E | E | E |
-| 401 Unauthorized | **Yetkilendirme başlığı eksik, hatalı veya geçersiz olduğundan istek yetkilendirmedi ve erişim reddedildi.**| E | E | E |
+| 401 Unauthorized | **Yetkilendirme başlığı eksik, hatalı veya geçersiz olduğundan istek yetkilendirilmediğinde ve erişim reddedildiğinde http 401 kodu dönülmelidir.**| E | E | E |
 | 403 Forbidden | **Erişim belirtecinin veya rızanın kapsamı uyuşmuyor.**<br>YÖS bir hesaba/işlem kaynağına erişmeye çalışır ve YÖS, istenen kaynağa erişmek için geçerli izinlere sahip bir rızası yoktur. <br>Örneğin; hesap bilgisi rızası bakiye izni almamıştır ancak /bakiyeler adresinden istekte bulunmuştur. |   |   |   |
 | 404 Not Found | **HHS geçerli bir API erişim adresini sağlamıyorsa, o URL'ye gelen istekler için 404 (Bulunamadı) ile yanıt vermelidir.**YÖS, uygulama esaslarında tanımlanmayan bir kaynak için bir URL'ye erişmeye çalışırsa (örneğin, GET /yurtdisi-odeme), HHS, 404 (Bulunamadı) ile yanıt vermeyi seçebilir.| E | E | E |
 | 405 Method Not Allowed | **YÖS, desteklenmeyen bir yöntemle kaynağa erişmeye çalıştı.**| E | E | E |
@@ -479,27 +480,11 @@ moreInformationTr: “Hatalı Yös Rolü”
 
 <ins>**401 Unauthorized**</ins>
 
-**Hataya ilişkin olası sonuç kodları:**
-```JSON 
-errorCode: "TR.OBHS.Connection.InvalidCertificate"
-moreInformation: “Invalid Certificate”
-moreInformationTr: “Geçersiz Sertifika” 
-
-errorCode: " TR.OBHS.Connection.InvalidCertificate "
-moreInformation: “Expired Certificate ”
-moreInformationTr: “SERTIFIKA SURESI DOLMUS”  
-
-errorCode: " TR.OBHS.Connection.InvalidCertificate "
-moreInformation: “Revoked Certificate”
-moreInformationTr: “SERTIFIKA IPTAL EDILMIS” 
-
-```
-
-**Ek olarak, YÖS, süresi dolmuş bir erişim belirteci kullandığında, HHS 401 (Yetkisiz) http kodu ile aşağıdaki hata kodunu dönmelidir.** Aşağıdaki nedenlerden herhangi biri nedeniyle bir Erişim Belirtecinin süresi dolduğunda bu durum ortaya çıkabilir:
+**YÖS, süresi dolmuş bir erişim belirteci kullandığında, HHS 401 (Yetkisiz) http kodu ile aşağıdaki hata kodunu dönmelidir.** Aşağıdaki nedenlerden herhangi biri nedeniyle bir Erişim Belirtecinin süresi dolduğunda bu durum ortaya çıkabilir:
 - Rızanın süresi doldu (Son Kullanma Tarihi geçti)
 - Erişim Belirtecinin şüpheli kullanımı veya sahtekarlık şüphesi
 - Rızada belirlenen gün sayısının aşımı
-Bu hata, müşteriden doğru izinlerle yeniden kimlik doğrulaması veya kimlik doğrulaması isteyerek çözülebilir.
+Bu hata, müşteriden doğru izinlerle yeniden kimlik doğrulaması isteyerek çözülebilir.
 
 ```json 
 errorCode: " TR.OBHS.Connection.InvalidToken "
@@ -612,15 +597,20 @@ Maskeli olarak iletilmesi gereken verilerin maskeleme kuralları şu şekildedir
 ## 3.20. Fonksiyonel Olmayan Gereksinimler
 
 
-- HHS’lerin sunuyor oldukları servisleri en fazla 3000 ms içinde yanıt dönecek şekilde tasarlamalıdır. 
+- HHS’lerin sunuyor oldukları servisleri en fazla 3000 ms içinde yanıt dönecek şekilde tasarlamalıdır.  
+
 - YÖS tarafından kullanıcının başlatmadığı otomatize sorgular için aşağıdaki limitler belirlenmiştir.  
-YÖS, Bireysel ÖHK’lar için hesap bazında günde en fazla 4 adet sorgulama yapabilir.  
-YÖS, Kurumsal ÖHK’lar için hesap bazında saatte en fazla 12 adet sorgulama yapabilir  
-Diğer taraftan kullanıcının başlattığı Hesap Bilgisi Hizmeti kapsamındaki sorgular HHS tarafından belirlenen üst rate limitler dahilinde tanımlanabilir.
+  - YÖS, Bireysel ÖHK’lar için hesap bazında günde en fazla 4 adet sorgulama yapabilir.  
+  - YÖS, Kurumsal ÖHK’lar için hesap bazında saatte en fazla 12 adet sorgulama yapabilir  
+  Diğer taraftan kullanıcının başlattığı Hesap Bilgisi Hizmeti kapsamındaki sorgular HHS tarafından belirlenen üst rate limitler dahilinde tanımlanabilir.  
+
 - HHS’lerin sunuyor oldukları servislere sistemin güvenlik ve sürekliliğini sağlamak adına rate limit koyma ihtiyaçları olur ise, standartlar ve ihtiyaçlara uygun şekilde bir konfigürasyon yapabilirler. Ör: YÖS - Kullanıcı bazında günde X sorgu v.b. 
-İsteğin kullanıcı tarafından başlatıldığı Request Header içerisinde yer alan Payment Service User (PSU) alanlarından anlaşılabilir.
-- HHS’ler aynı zamanda servislerin ayakta olup olmadığına yönelik olarak bir healthcheck servisi kurmalıdır.  HHS’lerin bu servis ile tüm network ve veritabanı ya da servislerinin ihtiyaç duydukları altyapısal erişimleri modellemeli ve bu servisi BKM ile paylaşmaları beklenmektedir. Bu servis düzenli olarak BKM tarafından çağırılarak servislerin ayakta olup olmadıklarının kontrolünün sağlanması planlanmaktadır.
-Sunulan her API için /health endpointi ile aşağıdaki bilgileri vermeleri beklenmektedir.   
+İsteğin kullanıcı tarafından başlatıldığı Request Header içerisinde yer alan Payment Service User (PSU) alanlarından anlaşılabilir. 
+
+- HHS’ler aynı zamanda servislerin ayakta olup olmadığına yönelik olarak bir healthcheck servisi kurmalıdır.  HHS’lerin bu servis ile tüm network ve veritabanı ya da servislerinin ihtiyaç duydukları altyapısal erişimleri modellemeli ve bu servisi BKM ile paylaşmaları beklenmektedir. Bu servis düzenli olarak BKM tarafından çağırılarak servislerin ayakta olup olmadıklarının kontrolünün sağlanması planlanmaktadır.  
+
+Sunulan her API için /health endpointi ile aşağıdaki bilgileri vermeleri beklenmektedir.     
+
 [GET /{api ismi}/{versiyon}/health]()
 
 **Örnek:**  

@@ -18,45 +18,11 @@ module.exports = [
             },
             {
                 title: '4. Rıza Durumları',
-                path: '/v1.0.0/contents/riza-durumlari',
-                children: [
-                    {
-                        title: '4.1 Hesap Bilgisi Hizmeti Rıza durum değişiklikleri',
-                        path: '/v1.0.0/contents/riza-durumlari'
-                    },
-                    {
-                        title: '4.2 Ödeme Bilgisi Hizmeti Rıza Durum Değişiklikleri',
-                        path: '/v1.0.0/contents/riza-durumlari'
-                    }
-                ],
+                path: '/v1.0.0/contents/riza-durumlari'
             },
             {
                 title: '5. Güçlü Kimlik Doğrulama',
-                path: '/v1.0.0/contents/gkd',
-                children: [
-                    {
-                        title: '5.1. Yönlendirmeli Güçlü Kimlik Doğrulama',
-                        path: '/v1.0.0/contents/gkd',
-                        children: [
-                            {
-                                title: '5.1.1 Tarayıcı Tabanlı Yönlendirme',
-                                path: '/v1.0.0/contents/gkd',
-                            },
-                            {
-                                title: '5.1.2 Uygulama Tabanlı Yönlendirme',
-                                path: '/v1.0.0/contents/gkd',
-                            }
-                        ]
-                    },
-                    {
-                        title: '5.2. Ayrık Güçlü Kimlik Doğrulama',
-                        path: '/v1.0.0/contents/gkd'
-                    },
-                    {
-                        title: '5.3. Güçlü Kimlik Doğrulama Kontrolleri',
-                        path: '/v1.0.0/contents/gkd'
-                    }
-                ],
+                path: '/v1.0.0/contents/gkd'                
             },
             {
                 title: '6. Ödeme Emri Başlatma Hizmeti',
@@ -93,6 +59,21 @@ module.exports = [
             {
                 title: '7. Hesap Bilgisi Hizmeti',
                 path: '/v1.0.0/contents/hesap-bilgisi-hizmeti',
+            
+            },
+            {
+                title: '8. HHS ve YÖS API',
+                path: '/v1.0.0/contents/hhs-yos-api',
+            
+            },
+            {
+                title: '9. Erişim Belirteci API',
+                path: '/v1.0.0/contents/erisim-belirteci',
+            
+            },
+            {
+                title: '10. Ekler',
+                path: '/v1.0.0/contents/ekler',
             
             },
         ]
